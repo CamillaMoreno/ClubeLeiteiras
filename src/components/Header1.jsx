@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   },
 
   header: {
+    zIndex: 2,
     position: "fixed",
     top: 0,
     display: "flex",
@@ -53,34 +54,6 @@ const useStyles = makeStyles({
     color: rosaPessego,
   },
 
-  search: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "2%",
-    width: "100%",
-    height: "35px",
-    '& button': {
-      display: "flex",
-      alignItems: "center",
-      height: "100%",
-      backgroundColor: "black",
-      color: "white",
-      borderRadius: "6px",
-      border: "none",
-      padding: "10px 15px",
-      cursor: "pointer",
-    },
-    '& input': {
-      height: "100%",
-      borderRadius: "6px",
-      border: `2px solid ${rosaPessego}`,
-      outlineColor: rosaPessego,
-      padding: "10px 15px",
-      width: "40%",
-    },
-  },
-
   options: {
     marginRight: "4%",
     display: "flex",
@@ -110,11 +83,6 @@ function Header() {
           <h5 className={classes.leiteras}>Leiteras</h5>
         </div>
       </Link>
-
-      <div className={classes.search}>
-        <input type="search" placeholder="Pesquisar livro" />
-        <button>BUSCAR</button>
-      </div>
 
       <div className={classes.options}>
         <Link to="/login">Login</Link>

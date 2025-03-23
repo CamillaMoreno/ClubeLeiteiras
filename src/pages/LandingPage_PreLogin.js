@@ -1,99 +1,152 @@
 import Header1 from '../components/Header1';
 import Slogan from '../components/Slogan';
+import mocaLendo from "../assets/mocaLendo2.png";
+import mocaLendo2 from "../assets/mocaLendo.png";
 import fraseDia from "../assets/fraseDia.png";
 import { makeStyles } from "@mui/styles";
-import { LivroCard } from '../components/Book';
+import Book from '../components/Book';
 
 /* Cores: */
 const rosaClarinho = "#FAD9D1";
 const rosaPessego = "#FF9B8B";
-const rosaBlush = "#EF7E6D";
 const rosaVermelhinho = "#892E2E";
 
 const useStyles = makeStyles({
-    container: {
-      margin: "5% 0",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 80,
+  container: {
+    margin: "5% 0",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 80,
+  },
+
+  sobreNos: {
+    marginTop: "-5%",
+    padding: "5% 0",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "& h1": {
+      margin: "0",
+      fontFamily: "Agbalumo",
+      fontSize: "50px",
     },
 
-    box1: {
-      zIndex: -1,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: "30px",
-      padding: "3% 5%",
+    "& p": {
+      lineHeight: "25px",
+      borderRadius: "25px",
+      padding: "4% 3%",
+      backgroundColor: rosaPessego,
       width: "40%",
-      height: "70%",
-      border: `3px solid ${rosaVermelhinho}`,
+    }
+  },
 
-      "& img": {
-        zIndex: -1,
-        position: "absolute",
-        right: "15%",
-        width: "15%",
-      },
+  mocaLendo: {
+    width: "25%",
+  },
 
-      "& h3": {
-        zIndex: -1,
-        left: "27%",
-        padding: "0 0.5%",
-        position: "absolute",
-        top: "107%",
-        color: rosaVermelhinho,
-        backgroundColor: "white",
-      },
-    },
+  mocaLendo2: {
+    width: "30%",
+  },
 
-    frase: {
-      fontSize: "20px",
-    },
+  sobreNosTexto: {
+    margin: "0.5% 0 -2%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    gap: "7%",
 
-    nomeLivroFrase: {
-      float: "right",
-      fontWeight: "bold",
-    },
+    "& p": {
+      color: "white",
+    }
+  },
 
-    box2: {
+  box1: {
+    zIndex: -1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "30px",
+    padding: "1.5% 5%",
+    width: "40%",
+    border: `3px solid ${rosaVermelhinho}`,
+
+    "& img": {
       zIndex: -1,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: "30px",
-      padding: "3% 5%",
-      width: "40%",
-      height: "70%",
-      border: `3px solid ${rosaVermelhinho}`,
-
-      "& h3": {
-        zIndex: -1,
-        right: "27%",
-        padding: "0 0.5%",
-        position: "absolute",
-        top: "157%",
-        color: rosaVermelhinho,
-        backgroundColor: "white",
-      },
-
-      "& p": {
-        marginLeft: "5%",
-      }
+      position: "relative",
+      right: "-80%",
+      width: "35%",
     },
 
-    livroDia: {
+    "& h3": {
       zIndex: -1,
+      padding: "0 0.5%",
       position: "absolute",
-      left: "20%",
-      transform: "rotate(-8deg)",
+      top: "262%",
+      left: "27%",
+      color: rosaVermelhinho,
+      backgroundColor: "white",
     },
+  },
 
-    nomeLivro: {
-      fontWeight: "bold",
+  textoFrase: {
+    marginLeft: "-50%",
+    width: "90%",
+    textAlign: "start",
+  },
+
+  frase: {
+    fontSize: "20px",
+  },
+
+  nomeLivroFrase: {
+    marginTop: "4%",
+    textAlign: "end",
+    fontWeight: "bold",
+  },
+
+  box2: {
+    zIndex: -1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "30px",
+    padding: "1.5% 5%",
+    width: "40%",
+    border: `3px solid ${rosaVermelhinho}`,
+
+    "& h3": {
+      zIndex: -1,
+      padding: "0 0.5%",
+      position: "absolute",
+      right: "27%",
+      top: "317.5%",
+      color: rosaVermelhinho,
+      backgroundColor: "white",
     },
+  },
+
+  textoLivro: {
+    marginLeft: "-15%",
+    width: "135%",
+    textAlign: "start",
+  },
+
+  livroDia: {
+    zIndex: -1,
+    position: "relative",
+    left: "-25%",
+    transform: "rotate(-8deg)",
+  },
+
+  nomeLivro: {
+    fontWeight: "bold",
+  },
 })
 
 const LandingPage_PosLogin = () => {
@@ -105,23 +158,35 @@ const LandingPage_PosLogin = () => {
       <Slogan />
 
       <div className={classes.container}>
+        <div className={classes.sobreNos}>
+          <h1>O que é o nosso clube?</h1>
+          <div class={classes.sobreNosTexto}>
+            <p>Nosso clube é um espaço para debate e aprendizado, criado por estudantes instituto J&F com o objetivo de incentivar o hábito de leitura e apoiar outras jovens na jornada dos vestibulares. Nossa proposta é que uma vez ao mês haja o sorteio de pelo menos 2 livros, sendo um, uma obra obrigatória para os vestibulares da Fuvest ou Unicamp e outro indicado pelas membros.</p>
+            <img src={mocaLendo} alt="" class={classes.mocaLendo} />
+          </div>
+          <div class={classes.sobreNosTexto}>
+            <img src={mocaLendo2} alt="" class={classes.mocaLendo2} />  
+            <p>Durante a leitura do livro obrigatório, é indicada a criação de um documento, que anote os principais pontos e sirva de apoio para a discução sobre a obra. Nossa plataforma serve de apoio para esse processo, a ideia é que cada vez mais essas moças tenham apreço pela literatura.</p>
+          </div>
+        </div>
+
         <div className={classes.box1}>
           <img src={fraseDia} alt="fraseDiaImg" />
       
           <h3>Frase do Dia:</h3>
           <div className={classes.textoFrase}>
-            <p className={classes.frase} >- Porque pessoas incríveis escolhem pessoas tão horríveis para amar?<br/>- Nós aceitamos o amor que achamos que merecemos.</p>
-            <p className={classes.nomeLivroFrase} >- As vantagens de ser invísivel</p>
+            <p className={classes.frase} >Frase</p> {/* Trazer do banco */}
+            <p className={classes.nomeLivroFrase} >nomeLivro</p> {/* Trazer do banco */}
           </div>
         </div>
       
         <div className={classes.box2}>
-          <div className={classes.livroDia}><LivroCard /></div>
+          <div className={classes.livroDia}><Book /></div> {/* Arrumar para renderizar só a capa do livro do dia */}
 
           <h3>Livro do Dia:</h3>
           <div className={classes.textoLivro}>
-            <p className={classes.nomeLivro} >Percy Jackson e o Ladrão de Raios:</p>
-            <p className={classes.sinopse} >O adolescente Percy Jackson descobre que os deuses gregos e as criaturas mitológicas são reais. Ele é filho de uma divindade e logo entra para um acampamento de treinamento para semideuses. Enquanto tenta se adaptar a seus novos poderes e amigos, ele descobre que o Raio-Mestre do poderoso Zeus foi roubado e ele é o principal suspeito. Assim, ele tenta solucionar o mistério junto com seus novos colegas, Grover e Annabeth.</p>
+            <p className={classes.nomeLivro} >nomeLivro</p> {/* Trazer do banco */}
+            <p className={classes.sinopse} >sinopse</p> {/* Trazer do banco */}
           </div>
         </div>
       </div>

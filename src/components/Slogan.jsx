@@ -15,13 +15,12 @@ const useStyles = makeStyles({
   },
   
   partePrincipal: {
-    marginTop: "2.5%",
-    marginBottom: "2.5%",
+    marginTop: "-5%",
     backgroundImage: `url(${manchinhas})`,
     backgroundSize: "cover",
     backgroundPosition: 'center',
     width: "100%",
-    height: "660px",
+    height: "880px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
