@@ -111,6 +111,7 @@ const useStyles = makeStyles(() => ({
 
 const Cadastro = () => {
   const classes = useStyles();
+  
 
   const handleLogin = () => {
     // Função para processar o cadastro
@@ -134,5 +135,7 @@ const Cadastro = () => {
     </div>
   );
 };
+
+
 
 export default Cadastro;

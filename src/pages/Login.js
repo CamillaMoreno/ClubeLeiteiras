@@ -91,9 +91,38 @@ const useStyles = makeStyles(() => ({
 
 const Login = () => {
   const classes = useStyles();
+  const [emailOrPhone, setEmailOrPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogin = () => {
-    // Função para processar o login
+
+  const handleLogin = async () => {
+    const credentials = { telefoneEmail: emailOrPhone, senha: password };
+
+    try {
+      const response = await fetch('http://localhost:5000/login', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Sucesso no login
+        console.log('Login bem-sucedido:', data);
+        // Redirecionar ou fazer algo com os dados, como armazenar o ID do usuário
+        
+      } else {
+        // Exibir mensagem de erro
+        setErrorMessage(data.error || 'Erro ao fazer login');
+      }
+    } catch (error) {
+      console.error('Erro ao chamar a API:', error);
+      setErrorMessage('Erro de conexão');
+    }
   };
 
   return (
@@ -102,11 +131,27 @@ const Login = () => {
 
         <form action="" className={classes.login}>
             <img src={login} alt="" />
-            <input type="text" placeholder="Telefone ou Email" name="telefoneEmail" id="telefoneEmail" />
-            <input type="password" placeholder="Senha" name="senha" id="senha" />
+            <input
+              type="text"
+              placeholder="Telefone ou Email"
+              name="telefoneEmail"
+              id="telefoneEmail"
+              value={emailOrPhone}
+              onChange={(e) => setEmailOrPhone(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Senha"
+              name="senha"
+              id="senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             
-            <button type="button" className="btnEntrar" onClick={handleLogin}>ENTRAR</button>
-            <p id="erro"></p>
+            <button type="button" className="btnEntrar" onClick={handleLogin}>
+              ENTRAR
+            </button>
+            {errorMessage && <p id="erro">{errorMessage}</p>}
             <p>Não tem uma conta?<Link to="/cadastro"> Cadastre-se agora!</Link></p>
         </form>
     </div>
